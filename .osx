@@ -12,6 +12,13 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # General UI/UX                                                               #
 ###############################################################################
 
+# Change standby delay to 24h (retina deepsleep), avoid having 8-10s boot after 1h only (default delay)
+sudo pmset -a standbydelay 86400
+
+# Update popclip settings to allow 999 extensions max
+defaults write com.pilotmoon.popclip MaxNumberOfExtensions -int 999
+	
+
 # Set computer name (as done via System Preferences → Sharing)
 #sudo scutil --set ComputerName "0x6D746873"
 #sudo scutil --set HostName "0x6D746873"
@@ -39,6 +46,14 @@ defaults write com.apple.systemuiserver menuExtras -array \
 	"/System/Library/CoreServices/Menu Extras/AirPort.menu" \
 	"/System/Library/CoreServices/Menu Extras/Battery.menu" \
 	"/System/Library/CoreServices/Menu Extras/Clock.menu"
+
+sudo scutil --set ComputerName "Hugues"
+sudo scutil --set HostName "Hugues"
+sudo scutil --set LocalHostName "Hugues"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "Hugues"
+
+# Menu bar: disable transparency
+defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 
 # Set highlight color to green
 defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600"
