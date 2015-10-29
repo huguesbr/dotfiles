@@ -170,3 +170,9 @@
 [url "git://gist.github.com/"]
 
 	insteadOf = "gist:"
+
+# Fix treating xcode .strings as binary 
+# check http://stackoverflow.com/questions/777949/can-i-make-git-recognize-a-utf-16-file-as-text
+[diff "localizablestrings"]
+
+	textconv = "iconv -f utf-16 -t utf-8"
