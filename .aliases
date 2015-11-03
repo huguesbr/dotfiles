@@ -11,7 +11,7 @@ alias simclean="xcrun simctl list devices | grep -v '^[-=]' | cut -d '(' -f2 | c
 
 # Shortcuts
 alias dev="cd ~/Developer"
-alias d="cd ~/Documents/Dropbox"
+alias d="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/projects"
